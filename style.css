@@ -9,10 +9,6 @@ td {
   border-collapse: collapse;
 }
 
-caption {
-  font-size: large;
-}
-
 td {
   text-align: center;
 }
@@ -21,18 +17,10 @@ th {
   background-color: rgb(241, 241, 242);
 }
 
-.theme1 {
-  background-color: rgb(222, 234, 246);
+tr th {
+  background-color: rgb(112, 173, 71);
 }
 
-.theme2 {
-  background-color: rgb(248, 201, 168);
-}
-
-.theme3 {
-  background-color: rgb(197, 224, 179);
-}
-
-.theme4 {
-  background-color: rgb(255, 229, 154);
+tr:nth-child(even) {
+  background-color:  rgb(217, 217, 217);
 }

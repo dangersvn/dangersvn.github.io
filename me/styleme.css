@@ -17,3 +17,22 @@ h1, h2 {
 strong {
   color: #3f51b5;
 }
+
+a:link {
+  color: crimson;
+  text-decoration: none;
+}
+
+a:visited {
+  color: darkgoldenrod;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3f51b5;
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
