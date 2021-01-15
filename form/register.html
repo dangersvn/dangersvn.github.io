@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      box-sizing: border-box;
+    }
+    .container {
+      width: 100%;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    label[for="mobile-phone"] {
+      display: inline;
+      margin-top: 1em;
+    }
+    label[for="home-phone"] {
+      display: inline;
+      margin-top: 1em;
+    }
+
+    .phone-section {
+      margin-top: 1em;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 2em;
+    }
+
+    button {
+      display: block;
+      background-color: rgb(37,117,210);
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      width: 70%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      margin: auto;
+      cursor: pointer;
+    }
+
+    .button-container {
+      margin-top: 2em;
+    }
+    
+    @media only screen and (min-width: 600px) {
+      .container {
+        width: 50%;
+        margin:auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <form onsubmit="alert('Form submitted.');">
+      <div>
+        <label>First name</label>
+        <input type="text" name="firstName" required />
+      </div>
+      <div>
+      <label>Middle name (optional)</label>
+      <input type="text" name="middleName" required />
+    </div>
+    
+      <div><label>Last name</label>
+        <input type="text" name="lastName" required /></div>
+
+      <label>Suffix (optional)</span>
+
+        <div><label>SSN</label>
+          <input type="text" name="ssn" pattern="(\d{3}-\d{2}-\d{4}|\d{9})"
+            title="Must match pattern: 123-45-6789 or 123456789" required /></div>
+
+        <div>
+          <label>Credit card</label>
+        <input type="text" name="creditcard-number" pattern="\d{13,19}" title="Must match pattern: 13 to 19 number"
+          required />
+        </div>
+
+       <div>
+        <label>Residential address line 1</label>
+        <input type="text" name="adddressLine1" required>
+       </div>
+
+        <div>
+          <label> City</label>
+        <input type="text" name="city" required>
+        </div>
+
+        <div><label>State</label>
+          <input type="text" list="states" name="state" required>
+          <datalist id="states">
+            <option value="IA"></option>
+            <option value="NY"></option>
+            <option value="LA"></option>
+          </datalist></div>
+
+        <label for="zipcode">ZIP code</label>
+        <input type="text" name="zipcode" pattern="\d{5}" title="Zip code is exactly 5 digits" required />
+        
+        <label for="phonenumber">Primary phone number</label>
+        <input type="text" name="phonenumber" pattern="(\(\d{3}\) \d{3}-\d{4}|\d{10})"
+          title=". Phone number is 10 digits with optional formatting (123) 456-7899" required />
+
+          <div class="phone-section">
+            <input type="radio" id="mobile-phone" name="phonetype" value="mobile_phone" required />
+            <label for="mobile-phone">Mobile phone</label>
+            <input type="radio" id="home-phone" name="phonetype" value="home_phone" required />
+            <label for="home-phone">Home phone</label>
+          </div>
+       
+
+        <label>Email address</label>
+        <input type="text" name="email" required />
+        <label>Date of birth</label>
+        <input type="text" name="dob" pattern="([0][1-9]|[1][012])\/([0][1-9]|[12]\d|[3][01])\/([1][9]\d{2}|2000)"
+          title="Date of birth from year 1900 to 2000 in valid MM/DD/YYYY format" required />
+
+        <div class="button-container">
+          <button type="submit">Submit</button>
+        </div>
+        
+    </form>
+  </div>
+  <div class="validator">
+    <a href="https://validator.w3.org/check/referer">
+      <img src="../resources/w3c/html5_validator.png" alt="Validate html" referrerpolicy="no-referrer-when-downgrade"
+          height="23" />
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/check/referer">
+      <img src="../resources/w3c/vcss.gif" alt="Validate css" referrerpolicy="no-referrer-when-downgrade" height="23" />
+  </a>
+  </div>
+</body>
+
+</html>

@@ -58,7 +58,6 @@ body {
 }
 
 .box {
-  /* float: left; */
   display: inline-block;
   width: 245px;
   margin: 0.5em;
