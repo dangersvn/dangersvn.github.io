@@ -1,12 +1,14 @@
 window.onload = init;
-
+let timerid;
 function init() {
   bigger.onclick = onBiggerButtonClick;
   checkBling.onchange = onBlingCheck;
 }
 
 function onBiggerButtonClick() {
-  setInterval(increasingFontSize, 500);
+  if(!timerid) {
+    timerid = setInterval(increasingFontSize, 500);
+  }
 }
 
 function increasingFontSize() {
@@ -14,8 +16,6 @@ function increasingFontSize() {
     text.style.fontSize = "12pt";
   }
   let currentSize = parseInt(text.style.fontSize);
-  console.log(currentSize);
-  console.log((currentSize  + 2) + "pt");
   text.style.fontSize = (currentSize  + 2) + "pt";
   
 }

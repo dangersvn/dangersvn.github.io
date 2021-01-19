@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCIImation</title>
+  <link href="ascii.css" rel="stylesheet" />
+  <script src="ascii.js"></script>
+  <script src="animations.js"></script>
+
+
+</head>
+
+<body>
+  <h1>CS472: ASCII Animation Viewer</h1>
+  <div class="textarea-wraper">
+    <textarea id="textarea" rows="80" cols="20"></textarea>
+  </div>
+  <div class="control-container">
+    <fieldset>
+      <legend>Play Controls:</legend>
+      <button id="startButton">start</button>
+      <button id="stopButton">stop</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Animation:</legend>
+      <select id="animationSelection">
+        <option value="BLANK">Blank</option>
+        <option value="EXERCISE">Exercise</option>
+        <option value="JUGGLER">Juggler</option>
+        <option value="BIKE">Bike</option>
+        <option value="DIVE">Dive</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Size:</legend>
+      <select id="sizeSelection">
+        <option value="7px">Tiny</option>
+        <option value="10px">Small</option>
+        <option value="12px">Medium</option>
+        <option value="16px">Large</option>
+        <option value="24px">Extra Large</option>
+        <option value="32px">XXL</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Speed:</legend>
+      <label><input id="turboCheck" type="checkbox">Turbo</input></label>
+    </fieldset>
+  </div>
+  <div class="validator">
+    <p>
+      <a href="https://validator.w3.org/check/referer">
+        <img src="../resources/w3c/html5_validator.png" alt="Validate html" referrerpolicy="no-referrer-when-downgrade"
+          height="23" />
+      </a>
+    </p>
+    <p>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img src="../resources/w3c/vcss.gif" alt="Validate css" referrerpolicy="no-referrer-when-downgrade"
+          height="23" />
+      </a>
+    </p>
+    <p>
+      <a href="https://webster.cs.washington.edu/jslint/?referer">
+        <img src="../resources/w3c/jslint_validate.png" alt="Valid JS" height="23" />
+      </a>
+    </p>
+  </div>
+</body>
+
+</html>
