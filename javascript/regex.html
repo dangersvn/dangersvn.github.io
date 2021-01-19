@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // https://exploringjs.com/impatient-js/ch_regexps.html#lookbehind-es2018
+
+    // Positive lookbehind: (?<=«pattern») matches if pattern matches what came before.
+    // Example: sequences of lowercase letters that are preceded by an X.
+    // > 'Xabc def'.match(/(?<=X)[a-z]+/g)
+    // [ 'abc' ]
+    console.log('Xabc def'.match(/(?<=X)[a-z]+/g));
+    let str = "The value is $200";
+    
+    // i want to get the currency
+    console.log(str.match("(?<=The value is).*"));// Read: Look behind/after "The value is" which ever match ".*"
+    
+
+    //Positive lookahead: (?=«pattern») matches if pattern matches what comes next.
+    //Example: sequences of lowercase letters that are followed by an X.
+    let str = "$200 is the value is";
+    // i want to get the currency
+    console.log(str.match(".*(?=is the value is)"));// Read: Look ahead "is the value" which ever match ".*"
+
+  </script>
+</body>
+</html>
