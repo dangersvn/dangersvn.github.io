@@ -23,7 +23,9 @@ function createAccount() {
   let accName = accountNameInput.value;
   let deposit = depositInput.value;
    //validate
-
+    if(isNaN(deposit)) {
+      return alert("Please input deposit as a number");
+    }
    let acc = bankModule().createBankAccount(accName, +deposit);
    accountInfoList.push(acc);
    displayAccounts();
