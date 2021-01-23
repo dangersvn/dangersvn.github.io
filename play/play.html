@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="play.js"></script>
+</head>
+
+<body>
+  <script>
+    var a = {
+      x: 10,
+      calculate: function (z) {
+        console.log(this);
+        this.x + this.y + z;
+      }
+    }
+    var b = {
+      x: 100000,
+      y: 20,
+      __proto__: a
+    }
+
+    var c = {
+      y: 30,
+      __proto__: a
+    }
+
+    var fb = function () { return b.calculate(33); }
+    var fb2 = b.calculate;
+
+    fb();
+    fb2(33);
+
+  </script>
+</body>
+
+</html>

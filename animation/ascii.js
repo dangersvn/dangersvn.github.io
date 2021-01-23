@@ -1,25 +1,21 @@
-"use strict";
-window.onload = init;
-
-function init() {
-  
-  startButton.onclick = animatorModule.onStartClick;
-  stopButton.onclick = animatorModule.onStopClick;
-  stopButton.disabled = true;
-  
-  animationSelection.onchange = animatorModule.onAnimationChanged; 
-  sizeSelection.onchange = animatorModule.onSizeChanged; 
-  turboCheck.onchange = animatorModule.onTurboCheck; 
-}
-
 
 var animatorModule = (function(){
-
+  "use strict";
   const SPLITER = "=====\n";
   let frames;
   let curIndex = 0;
   let timerid;
- 
+
+  window.onload = function() {    
+    startButton.onclick = animatorModule.onStartClick;
+    stopButton.onclick = animatorModule.onStopClick;
+    stopButton.disabled = true;
+    
+    animationSelection.onchange = animatorModule.onAnimationChanged; 
+    sizeSelection.onchange = animatorModule.onSizeChanged; 
+    turboCheck.onchange = animatorModule.onTurboCheck; 
+  }
+  
   function freezeUIs(isFreeze) {
     startButton.disabled = isFreeze;
     stopButton.disabled = !isFreeze;
@@ -39,9 +35,9 @@ var animatorModule = (function(){
     frames =  textarea.value.split(SPLITER);
     if(!frames || frames.length <= 1) return;
     console.log("Start animation.")
-    
-    timerid = setInterval(displayFrame, turboCheck.checked ? 50 : 250);
-  
+    if(timerid) {
+      timerid = setInterval(displayFrame, turboCheck.checked ? 50 : 250);
+    }
     freezeUIs(true);
   }
   
