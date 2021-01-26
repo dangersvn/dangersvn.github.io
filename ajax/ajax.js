@@ -1,5 +1,5 @@
 (function () {
-  let baseUrl = "http://jsonplaceholder.typicode.com";
+  let baseUrl = "https://jsonplaceholder.typicode.com";
   let usernameElement;
   let displaynameElement;
   let addressElement;
