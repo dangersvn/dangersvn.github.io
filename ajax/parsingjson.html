@@ -18,26 +18,57 @@
 
   <div class="container">
     <div class="user-info">
-      <img id="user-image" src="../resources/aboutme/happy_small_150w.jpg">
+      <picture>
+        <source media="(min-width: 600px)" srcset="../resources/aboutme/happy_small_150w.jpg">
+        <img id="user-image" src="../resources/aboutme/happy_extra_small_100w.jpg">
+      </picture>
+
 
       <div class="info">
         <h2 class="username">beyonce</h2>
         <h3 class="displayname">Beyoncé</h3>
-        <p class="address">Shop @KKWFRAGRANCE Metallic Hearts + Restock of BFF, BAE & WIFEY Thursday, 01.21 at 12PM PT & @SKIMS Jelly Sheer Friday, 01.22 at 9AM PT</p>
-        <p class="company">Shop @KKWFRAGRANCE Metallic Hearts + Restock of BFF, BAE & WIFEY Thursday, 01.21 at 12PM PT & @SKIMS Jelly Sheer Friday, 01.22 at 9AM PT</p>
+        <p class="address">Shop @KKWFRAGRANCE Metallic Hearts + Restock of BFF, BAE & WIFEY Thursday, 01.21 at 12PM PT &
+          @SKIMS Jelly Sheer Friday, 01.22 at 9AM PT</p>
+        <p class="company">Shop @KKWFRAGRANCE Metallic Hearts + Restock of BFF, BAE & WIFEY Thursday, 01.21 at 12PM PT &
+          @SKIMS Jelly Sheer Friday, 01.22 at 9AM PT</p>
 
         <p><a class="website" href="http://www.ivypark.com">www.ivypark.com</a></p>
 
-      </div>      
+      </div>
     </div>
     <div class="posts">
-      
+
       <!-- <div class="post" data-user-id="" data-post-id="">
         <p class="title">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</p>
         <div class="view-details">View detais</div>
       </div> -->
 
     </div>
+    <dialog id="commentsDialog">
+      <form method="dialog">
+        <div class="post-content">
+          <p class="title"> This is post title</p>
+          <p class="body"> This is post content</p>
+        </div>
+        <div class="post-comments">
+          <div class="user-info">
+            <picture>
+              <source media="(min-width: 600px)" srcset="../resources/aboutme/happy_icon_small_50w.jpg">
+              <img id="user-image" src="../resources/aboutme/happy_icon_small_50w.jpg">
+            </picture>
+            <p class="info"><span class="username">beyonce</p>
+          </div>
+          <hr>
+          <!-- <p class="comment">
+            <div class="user-info">
+              <img id="user-image" src="../resources/aboutme/user_small.jpg">
+              <p class="info"><span class="username">beyonce</span> <span>dlfkjldkfj;lkdfja;sdlkfjad;s</span></p>
+            </div>
+          </p> -->
+        </div>
+        <button>X</button>
+      </form>
+    </dialog>
 </body>
 
 </html>

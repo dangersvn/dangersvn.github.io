@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+beforehead
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="play.js"></script>
+  before title
+  <title>Web Font Sample</title>
+  after title
+  <style type="text/css" media="screen, print">
+    /* @font-face {
+      font-family: "Bitstream Vera Serif Bold";
+      src: url("https://mdn.mozillademos.org/files/2468/VeraSeBd.ttf");
+    }
+
+    body { font-family: "Bitstream Vera Serif Bold", serif } */
+    /* @font-face {
+      font-family: MyHelvetica;
+      src: local("Bitstream Vera Serif Bold"),
+        url(VeraSeBdeee.ttf);
+      font-weight: bold;
+    } */
+
+    body {
+      font-family: "MyHelvetica", serif
+    }
+
+    h1 {
+      border-left: thick dotted green;
+      border-bottom-color: red;
+      border-bottom-style: double;
+      border-radius: 15px;
+    }
+
+    .Blue {
+      background-color: blue;
+
+    }
+
+    .Green {
+      background-color: greenyellow;
+
+    }
+  </style>
+  <script src="./play.js"></script>
 </head>
+after head
 
 <body>
+  <h1 id="h1" class=" Green Blue">
+    This is Bitstream Vera Serif Bold.
+  </h1>
   <script>
-    var a = {
-      x: 10,
-      calculate: function (z) {
-        console.log(this);
-        this.x + this.y + z;
-      }
-    }
-    var b = {
-      x: 100000,
-      y: 20,
-      __proto__: a
-    }
-
-    var c = {
-      y: 30,
-      __proto__: a
-    }
-
-    var fb = function () { return b.calculate(33); }
-    var fb2 = b.calculate;
-
-    fb();
-    fb2(33);
-
+    
   </script>
 </body>
 

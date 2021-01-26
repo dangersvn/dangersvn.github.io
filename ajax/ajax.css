@@ -83,3 +83,47 @@
     margin:auto;
   } */
 }
+
+#commentsDialog {
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+.post-content {
+  width:400px;
+}
+.post-content .title {
+  font-weight: bold;
+}
+
+#commentsDialog form {
+  position: relative;
+  display:flex;
+  flex-direction: row;
+}
+
+p.info .username {
+  font-weight: bold;
+}
+
+.post-comments p.comment {
+  margin-bottom: 1em;
+}
+
+#commentsDialog button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#commentsDialog::backdrop {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 1px,
+    rgba(0, 0, 0, 0.3) 1px,
+    rgba(0, 0, 0, 0.3) 20px
+  );
+  backdrop-filter: blur(3px);
+}

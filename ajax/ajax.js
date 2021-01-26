@@ -8,6 +8,8 @@
 
   let postsContainerElement;
   let container = document.querySelector(".container");
+  let commentsDialog;
+  let postComments;
 
   window.onload = function () {
     container = document.querySelector(".container");
@@ -23,23 +25,20 @@
 
     // posts
     postsContainerElement = document.querySelector(".posts");
-    console.log(postsContainerElement);
-    
 
+    //dialog details
+    commentsDialog = document.getElementById('commentsDialog');
+    postComments = commentsDialog.querySelector(".post-comments");
   }
   function search() {
     let id = inputUserId.value;
     let userInfo = getUserInfo(id);
     userInfo
-    .then(displayUserInfo)
-    .catch(e => alert(e));
+      .then(displayUserInfo)
+      .catch(e => alert(e));
     getPostsByUserId(id).then(displayPosts);
   }
 
-  function viewPostDetails(id) {
-
-    alert("View details clicked. Post id" + id);
-  }
 
   function displayUserInfo(userInfo) {
     container.classList.remove("hide");
@@ -56,41 +55,52 @@
   function displayPosts(userPosts) {
     // clear old posts
     removeAllChildNodes(postsContainerElement);
-    let divPost;
-    for(let post of userPosts) {
-      divPost = createPostComponent(post);
-      divPost.innerHTML = `<p class="title">${post.title}</p>
-      <div class="view-details" onclick="viewPostDetails(${post.id})">View detais</div>`
-      postsContainerElement.append(divPost);
-      
+    for (let post of userPosts) {
+      postsContainerElement.insertAdjacentHTML("beforeend",
+        `<div class="post">
+          <p class="title">${post.title}</p>
+          <div class="view-details" data-post-id=${post.id}>View detais</div>
+        </div>`);
     }
- 
+
+    // assign events
+    viewDetails = postsContainerElement.querySelectorAll(".view-details");
+    viewDetails.forEach(view => view.onclick = viewPostDetails)
   }
+
+
+  function viewPostDetails(evt) {
+
+    if (typeof commentsDialog.showModal === "function") {
+      let postId = evt.target.dataset.postId;
+      getCommentsByPostId(postId)
+        .then(displayComments)
+        .catch(e => alert("viewPostDetails API error: ", e));
+
+    } else {
+      alert("The <dialog> API is not supported by this browser");
+    }
+  }
+
+  function displayComments(comments) {
+    console.log("Comments array ", comments);
+    comments.forEach(comment => {
+      // comment
+      postComments.insertAdjacentHTML("beforeend",
+        `<p class="comment">
+          <div class="user-info">
+            <img id="user-image" src="../resources/aboutme/user_small.jpg">
+            <p class="info"><span class="username">${comment.name}</span> <span>${comment.body}</span></p>
+          </div>
+        </p>`)
+    })
+    commentsDialog.showModal();
+  }
+
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
-  }
-  }
-
-  /**
-   * <div class="post" data-user-id="" data-post-id="">
-        <p class="title">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</p>
-        <div class="view-details">View detais</div>
-      </div>
-   */
-  function createPostComponent(post) {
-
-    var node = document.createElement("div");
-    node.className = "post";
-    // node.classList.add("post");
-
-    var b = document.createAttribute("data-post-id");
-    b.value = post.id;
-    node.setAttributeNode(b);
-    console.log(node.getAttribute("data-post-id")); 
-
-    return node
-    
+    }
   }
 
   async function getUserInfo(userId) {
@@ -108,7 +118,13 @@
       return postArray;
     }
   }
-  function getCommentsByPostId(postId) {
-    return fetch(`${baseUrl}/comments/postId=${postId}`);
+  //https://jsonplaceholder.typicode.com/posts/1/comments
+  async function getCommentsByPostId(postId) {
+    let commentsResponse = await fetch(`${baseUrl}/posts/${postId}/comments`);
+    if (commentsResponse.ok) {
+      let comments = await commentsResponse.json();
+      console.log(comments)
+      return comments;
+    }
   }
 })()
